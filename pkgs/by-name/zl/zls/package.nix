@@ -1,14 +1,14 @@
 {
   lib,
   stdenv,
-  zig_0_14,
+  zig_0_15,
   fetchFromGitHub,
   callPackage,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "zls";
-  version = "0.14.0";
+  version = "0.15.0";
 
   src = fetchFromGitHub {
     owner = "zigtools";
@@ -18,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-A5Mn+mfIefOsX+eNBRHrDVkqFDVrD3iXDNsUL4TPhKo=";
   };
 
-  nativeBuildInputs = [ zig_0_14.hook ];
+  nativeBuildInputs = [ zig_0_15.hook ];
 
   postPatch = ''
     ln -s ${callPackage ./deps.nix { }} $ZIG_GLOBAL_CACHE_DIR/p
